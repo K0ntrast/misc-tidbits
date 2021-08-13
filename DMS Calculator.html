@@ -1,0 +1,211 @@
+<html>
+
+<! ––
+Authour: Sam Baxter
+Version: 1.0
+––>
+
+<title>Degrees, Minutes, Seconds Angle Conversion</title>
+<head>
+</head>
+
+<script language="JavaScript"><!--
+function onClickCalculateDegMinSec()
+{
+	var degrees    = 0;
+	var minutes    = 0;
+	var seconds    = 0;
+	var decDegrees = 0.0;
+
+	degrees = parseFloat(window.document.degMinSec.degrees.value);
+	minutes = parseFloat(window.document.degMinSec.minutes.value);
+	seconds = parseFloat(window.document.degMinSec.seconds.value);
+
+	if(degrees < 0.0)
+	{
+		alert('The degrees should be expressed\nwith a zero or a positive number.');
+
+		return;
+	}
+
+	if(minutes < 0.0)
+	{
+		alert('The minutes should be expressed\nwith a zero or a positive number.');
+
+		return;
+	}
+
+	if(seconds < 0.0)
+	{
+		alert('The seconds should be expressed\nwith a zero or a positive number.');
+
+		return;
+	}
+
+	if(degrees != Math.floor(degrees))
+	{
+		alert('The degrees should be an integer.');
+
+		return;
+	}
+
+	if(minutes != Math.floor(minutes))
+	{
+		alert('The minutes should be an integer.');
+
+		return;
+	}
+
+	if(seconds != Math.floor(seconds))
+	{
+		alert('The seconds should be an integer.');
+
+		return;
+	}
+
+	if(degrees >= 360.0)
+	{
+		alert('The degrees should be less than 360.');
+
+		return;
+	}
+
+	if(minutes >= 60.0)
+	{
+		alert('The minutes should be less than 60.');
+
+		return;
+	}
+
+	if(seconds >= 60.0)
+	{
+		alert('The seconds should be less than 60.');
+
+		return;
+	}
+
+
+	decDegrees = degrees + (minutes * (1.0 / 60.0)) + (seconds * (1.0 / 3600.0));
+
+	alert('The decimal number of degrees is ' + decDegrees + '.');
+}
+
+
+function onClickCalculateDecDeg()
+{
+	var degrees     = 0;
+	var degreesTemp = 0.0;
+	var minutes     = 0;
+	var minutesTemp = 0.0;
+	var seconds     = 0;
+	var secondsTemp = 0.0;
+
+	var message = '';
+
+	var isNegativeAngle;
+
+	degreesTemp = parseFloat(window.document.decDegrees.decDegrees.value);
+
+	isNegativeAngle = false;
+
+	if(degreesTemp < 0.0)
+	{
+		isNegativeAngle = true;
+
+		degreesTemp = -degreesTemp;
+
+	}
+
+	degrees     = Math.floor(degreesTemp);
+
+	minutesTemp = degreesTemp - degrees;
+	minutesTemp = 60.0 * minutesTemp;
+	minutes     = Math.floor(minutesTemp);
+
+	secondsTemp = minutesTemp - minutes;
+	secondsTemp = 60.0 * secondsTemp;
+	seconds     = Math.round(secondsTemp);
+
+	if(isNegativeAngle)
+	{
+		message = "This angle is *negative*.\n";
+	}
+	else
+	{
+		message = "This angle is *positive*.\n";
+	}
+
+	message += degrees + ' Degrees' + '\n';
+	message += minutes + ' Minutes' + '\n';
+	message += seconds + ' Seconds';
+
+	alert(message);
+}
+
+// --></script>
+
+
+
+<body>
+<body bg color="#FFFFF">
+
+<font color="#000000" size=2 face="Tahoma">
+
+<h1>Angle Conversion Tool</h1>
+<hr>
+    <p><h3>Convert Degrees Minutes Seconds to Decimal Degrees</h3>
+	e.g. &nbsp&nbsp convert: &nbsp 10° 15' 36" &nbsp <b>--></b> &nbsp 10.26°</p>
+
+    <table bgcolor="#E1FFC3" border="0" cellpadding="4">
+        <tbody><tr>
+            <td><form method="post" name="degMinSec">
+                <table border="0">
+                    <tbody><tr>
+                        <td align="right" nowrap="nowrap">Degrees: <input size="3" name="degrees" value="0" type="text">&nbsp<b>°</b></td>
+                    </tr>
+                    <tr>
+                        <td align="right" nowrap="nowrap">Minutes: <input size="3" name="minutes" value="0" type="text">&nbsp<b> '<b></td>
+                    </tr>
+                    <tr>
+                        <td align="right" nowrap="nowrap">Seconds: <input size="3" name="seconds" value="0" type="text">&nbsp<b>"</b></td>
+                    </tr>
+                    <tr>
+                        <td align="center"><input value="Calculate" onclick="onClickCalculateDegMinSec()" type="button"></td>
+                    </tr>
+                </tbody></table>
+            </form>
+            </td>
+        </tr>
+    </tbody></table>
+<br>
+
+    <hr>
+
+    <p><h3>Convert Decimal Degrees to Degrees Minutes Seconds</h3>
+	e.g. &nbsp&nbsp convert: &nbsp 10.26° &nbsp <b>--></b> &nbsp 10° 15' 36"<br>
+	<br>
+	<i>&nbsp&nbspNOTE: This result will be rounded to the nearest second.</i></p>
+
+    <table bgcolor="#E1FFC3" border="0" cellpadding="4">
+        <tbody><tr>
+            <td><form method="post" name="decDegrees">
+                <table border="0">
+                    <tbody><tr>
+                        <td align="right" nowrap="nowrap">Decimal degrees: <input size="10" name="decDegrees" value="0.0000" type="text">&nbsp<b>°</b></td>
+                    </tr>
+                    <tr>
+                        <td align="center"><input value="Calculate" onclick="onClickCalculateDecDeg()" type="button"></td>
+                    </tr>
+                </tbody></table>
+            </form>
+            </td>
+        </tr>
+    </tbody></table>
+<br>
+<hr>
+<font size=1>END OF DOCUMENT.<br>
+<i>Last Modified: 17:42, 2021/08/13</i></p></font>
+
+</font>
+</body>
+</html>
