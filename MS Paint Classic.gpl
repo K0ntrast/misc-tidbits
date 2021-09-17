@@ -1,0 +1,32 @@
+GIMP Palette
+Name: Microsoft Paint Classic
+Columns: 14
+# Available online free! @ https://jspaint.app/
+0   0   0	Black
+128 128 128	Dark Grey
+128 0   0	Maroon
+128 128 0	Dark Yellow
+0   128 0	Dark Green
+0   0   128	Dark Cyan
+0   0   128	Dark Blue
+128 0   128	Dark Magenta
+128 128 64	Light Brown
+0   64  64	Dark Lime
+0   128 255	Blue
+0   64  128	Dark Teal
+128 0   255	Purple
+128 64  0	Brown
+255 255 255	White
+192 192 192	Light Grey
+255 0   0	Red
+255 255 0	Yellow
+0   255 0	Green
+0   255 255	Cyan
+0   0   255	Deep Blue
+255 0   255	Magenta
+255 255 128	Light Yellow
+0   255 128	Off Green
+128 255 255	Light Cyan
+128 128 255	Lavender
+255 0   128	Pink
+255 128 64	Orange
